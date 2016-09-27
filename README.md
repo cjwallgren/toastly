@@ -1,0 +1,2 @@
+# toastly
+Smart Toaster project
