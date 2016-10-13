@@ -4,11 +4,11 @@ Smart Toaster project. People always comment about IoT and ask "What's next, a s
 Well ladies and gents, here it is.
 
 
-RPi Wifi boostrap - Created by Lasse Christiansen (lcdev.dk)
+# RPi Wifi boostrap - Created by Lasse Christiansen (lcdev.dk)
 http://lcdev.dk/2012/11/18/raspberry-pi-tutorial-connect-to-wifi-or-create-an-encrypted-dhcp-enabled-ad-hoc-network-as-fallback/
 
 
-Web UI Based on Identity by HTML5 UP
+# Web UI Based on Identity by HTML5 UP
 
 README.txt from HTML5 UP:
 
