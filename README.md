@@ -1,5 +1,11 @@
 # toastly
-Smart Toaster project
+Smart Toaster project. People always comment about IoT and ask "What's next, a smart toaster?"
+
+Well ladies and gents, here it is.
+
+
+RPi Wifi boostrap - Created by Lasse Christiansen (lcdev.dk)
+http://lcdev.dk/2012/11/18/raspberry-pi-tutorial-connect-to-wifi-or-create-an-encrypted-dhcp-enabled-ad-hoc-network-as-fallback/
 
 
 Web UI Based on Identity by HTML5 UP
@@ -13,19 +19,11 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 Just a fun little profile/card-style template I whipped up during a break between major
 projects. Minimal, responsive, and powered by Skel + Sass. Enjoy :)
 
-Demo images* courtesy of Unsplash, a radtastic collection of CC0 (public domain) images
-you can use for pretty much whatever.
-
-(* = not included)
-
-AJ
+-AJ
 aj@lkn.io | @ajlkn
 
 
 Credits:
-
-	Demo Images:
-		Unsplash (unsplash.com)
 
 	Icons:
 		Font Awesome (fortawesome.github.com/Font-Awesome)
