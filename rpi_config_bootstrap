@@ -1,0 +1,48 @@
+# RPi Network Conf Bootstrapper - Created by Lasse Christiansen (lcdev.dk)
+# http://lcdev.dk/2012/11/18/raspberry-pi-tutorial-connect-to-wifi-or-create-an-encrypted-dhcp-enabled-ad-hoc-network-as-fallback
+# Modified slightly by Charlie Wallgren (Toastly)
+
+createAdHocNetwork(){
+    echo "Creating ad-hoc network"
+    ifconfig wlan0 down
+    iwconfig wlan0 mode ad-hoc
+    iwconfig wlan0 essid ToastFi      #SSID
+    ifconfig wlan0 10.0.0.200 netmask 255.255.255.0 up
+    /usr/sbin/dhcpd wlan0
+    echo "Ad-hoc network created"
+}
+ 
+echo "================================================================================"
+echo "Toastly Network Conf Bootstrapper 0.1 - Created by Lasse Christiansen (lcdev.dk)"
+echo "================================================================================"
+echo "Scanning for known WiFi networks"
+ssids=( 'test' )
+connected=false
+for ssid in "${ssids[@]}"
+do
+    if iwlist wlan0 scan | grep $ssid > /dev/null
+    then
+        echo "First WiFi in range has SSID:" $ssid
+        echo "Starting supplicant for WPA/WPA2"
+        wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf > /dev/null 2>&1
+        echo "Obtaining IP from DHCP"
+        if dhclient -1 wlan0
+        then
+            echo "Connected to WiFi"
+            connected=true
+            break
+        else
+            echo "DHCP server did not respond with an IP lease (DHCPOFFER)"
+            wpa_cli terminate
+            break
+        fi
+    else
+        echo "Not in range, WiFi with SSID:" $ssid
+    fi
+done
+ 
+if ! $connected; then
+    createAdHocNetwork
+fi
+ 
+exit 0
